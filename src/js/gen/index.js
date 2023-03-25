@@ -4,28 +4,28 @@ export default function Gen(tagName, attributes, children) {
 
 	// set attributes
 	for (let key in attributes) {
-		if (key !== 'style' && key !== 'conclick') {
+		if (key !== 'style' && key !== 'onclick') {
 			element.setAttribute(key, attributes[key]);
 		}
 		if (key === 'onclick') element.onclick = attributes[key];
 	}
-	
+
 	// set style
-	for (let property in attributes.style) {
-		if (property !== 'hover') element.style[property] = attributes.style[property];
+	for (let property in attributes?.style) {
+		if (property !== 'hover') element.style[property] = attributes?.style[property];
 	}
 
 	// hover
 	element.onmouseover = () => {
-		for (let property in attributes.style.hover) {
-			element.style[property] = attributes.style.hover[property];
+		for (let property in attributes?.style?.hover) {
+			element.style[property] = attributes?.style?.hover[property];
 		}
 	};
-	
+
 	// hover out
 	element.onmouseout = () => {
-		for (let property in attributes.style) {
-			if (property !== 'hover') element.style[property] = attributes.style[property];
+		for (let property in attributes?.style) {
+			if (property !== 'hover') element.style[property] = attributes?.style[property];
 		}
 	};
 
